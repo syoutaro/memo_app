@@ -1,3 +1,6 @@
 Rails.application.routes.draw do
- root 'application#hello'
+  devise_for :users
+  root 'pages#index'
+  get 'pages/show'
+
 end
