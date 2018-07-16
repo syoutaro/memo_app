@@ -13,6 +13,7 @@
             <nav>
                 <% if user_signed_in? %>
                 <strong><%= link_to 'メモをする',memo_path %></strong>
+                <%= link_to 'メモ一覧',index_path %>
                 <%= link_to 'プロフィール変更', edit_user_registration_path %>
                 <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
             <% else %>

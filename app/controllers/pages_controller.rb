@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def memo
+  	@memo = Memo.new
   end
 
   def index
@@ -16,7 +17,12 @@ class PagesController < ApplicationController
   def create
   	@memo = Memo.new(content: params[:content])
   	@memo.save
-  	redirect_to("/index")
+  	if @memo.save
+  		flash[:notice] = "メモを保存しました"
+  		redirect_to("/index")
+  	else
+  		render("pages/memo")
+  	end
   end
 
   def edit
@@ -27,12 +33,18 @@ class PagesController < ApplicationController
   	@memo = Memo.find_by(id: params[:id])
   	@memo.content = params[:content]
   	@memo.save
-  	redirect_to("/index")
+  	if @memo.save
+  		flash[:notice] = "メモを編集しました"
+  		redirect_to("/index")
+  	else
+  		render("pages/edit")
+  	end
   end
 
   def destroy
   	@memo = Memo.find_by(id: params[:id])
   	@memo.destroy
+  	flash[:notice] = "メモを削除しました"
   	redirect_to("/index")
   end
 end
