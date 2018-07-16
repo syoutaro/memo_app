@@ -18,4 +18,15 @@ class PagesController < ApplicationController
   	@memo.save
   	redirect_to("/index")
   end
+
+  def edit
+  	@memo = Memo.find_by(id: params[:id])
+  end
+
+  def update
+  	@memo = Memo.find_by(id: params[:id])
+  	@memo.content = params[:content]
+  	@memo.save
+  	redirect_to("/index")
+  end
 end

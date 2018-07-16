@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'memo' => 'pages#memo'
   get 'index'=>'pages#index'
-  get "show/:id"=>'pages#show'
+  get 'memo/:id'=>'pages#show'
+  get 'memo/:id/edit' => 'pages#edit'
   post 'create' => 'pages#create'
+  post 'memo/:id/update' => 'pages#update'
 end

@@ -1,5 +1,5 @@
 <h1>メモ詳細</h1>
 
 <%= @memo.content %>
-
 <%= @memo.created_at %>
+<%= link_to('編集する',"/memo/#{@memo.id}/edit") %>
