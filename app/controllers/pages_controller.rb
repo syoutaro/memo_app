@@ -29,4 +29,10 @@ class PagesController < ApplicationController
   	@memo.save
   	redirect_to("/index")
   end
+
+  def destroy
+  	@memo = Memo.find_by(id: params[:id])
+  	@memo.destroy
+  	redirect_to("/index")
+  end
 end

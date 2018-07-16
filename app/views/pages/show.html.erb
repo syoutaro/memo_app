@@ -3,3 +3,4 @@
 <%= @memo.content %>
 <%= @memo.created_at %>
 <%= link_to('編集する',"/memo/#{@memo.id}/edit") %>
+<%= link_to('削除する',"/memo/#{@memo.id}/destroy",{method: "post"}) %>
