@@ -4,6 +4,7 @@
 //全体
 body {
   padding-top: 60px;
+  width: 100%;
 }
 
 section {
@@ -62,13 +63,13 @@ p {
 
 //footer
 footer {
-	float: left;
-	margin-top: 45px;
- 	padding-top: 5px;
-	small {
-    float: left;
-    padding: 10px 500px;
-  }
+	position: fixed;
+    bottom: 0;
+    width: 100%;
+    small {
+    	float: left;
+    	margin: 0% 40%;
+    }
 }
 
 //btn-default
