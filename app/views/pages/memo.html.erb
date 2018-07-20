@@ -2,8 +2,14 @@
 
 <%= form_tag("/create") do %>
 	 <% @memo.errors.full_messages.each do |message| %>
-              <%= message %>
+              <div class="alert alert-success" role="alert">文字を入力してください</div>
      <% end %>
-	<textarea name="content"></textarea>
-	<input type="submit" name="保存">
+	
+	<div class="input-group input-group-lg">
+		<span class="input-group-addon ">メモ</span>
+			<input type="text" name="content" class="form-control" placeholder="メモを書く">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-default">保存</button>
+		</span>
+	</div>
 <% end %>

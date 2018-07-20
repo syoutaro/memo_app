@@ -1,5 +1,7 @@
 <h1>メモ一覧</h1>
 
 <% @memos.each do |memo| %>
-	<%= link_to(memo.content, "/memo/#{memo.id}") %>
+	<div class="list-group">
+		<a class="list-group-item"<%= link_to(memo.content, "/memo/#{memo.id}") %> </a>
+	</div>
 <% end %>

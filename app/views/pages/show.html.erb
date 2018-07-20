@@ -1,6 +1,19 @@
 <h1>メモ詳細</h1>
 
-<%= @memo.content %>
-<%= @memo.created_at %>
-<%= link_to('編集する',"/memo/#{@memo.id}/edit") %>
-<%= link_to('削除する',"/memo/#{@memo.id}/destroy",{method: "post"}) %>
+<div class="panel panel-default">
+	<div class="panel-heading">
+		メモの内容
+	</div>
+	<div class="panel-body">
+		<%= @memo.content %>
+	</div>
+</div>
+
+<div class="input-group">
+	<span class="input-group-addon">作成日時</span>
+	<input type="text" class="form-control" placeholder=<%= @memo.created_at %>>
+</div>
+<div class="edit-btn">
+	<button class="btn btn-default"><%= link_to('編集する',"/memo/#{@memo.id}/edit") %></button>
+	<button class="btn btn-default"><%= link_to('削除する',"/memo/#{@memo.id}/destroy",{method: "post"}) %></button>
+</div>

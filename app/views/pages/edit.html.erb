@@ -3,8 +3,13 @@
 
 <%= form_tag("/memo/#{@memo.id}/update") do %>
 	 <% @memo.errors.full_messages.each do |message| %>
-              <%= message %>
+              <div class="alert alert-danger" role="alert">文字を入力してください</div>
      <% end %>
-	<textarea name="content"><%= @memo.content %></textarea>
-	<input type="submit" name="保存">
+	<div class="input-group input-group-lg">
+		<span class="input-group-addon ">メモを書き換える</span>
+			<input type="text" name="content"value="<%= @memo.content %>"class="form-control">
+		<span class="input-group-btn">
+			<button type="submit" class="btn btn-default">保存</button>
+		</span>
+	</div>
 <% end %>
