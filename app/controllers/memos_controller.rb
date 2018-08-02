@@ -1,10 +1,8 @@
-class PagesController < ApplicationController
+class MemosController < ApplicationController
   before_action :authenticate_user!
 
-  def home
-  end
 
-  def memo
+  def new
   	@memo = Memo.new
   end
 
@@ -17,13 +15,12 @@ class PagesController < ApplicationController
   end
 
   def create
-  	@memo = Memo.new(content: params[:content])
-  	@memo.save
+  	@memo = Memo.new(content_params)
   	if @memo.save
   		flash[:notice] = "メモを保存しました"
-  		redirect_to("/index")
+  		redirect_to memos_path
   	else
-  		render("pages/memo")
+  		render :new
   	end
   end
 
@@ -33,20 +30,25 @@ class PagesController < ApplicationController
 
   def update
   	@memo = Memo.find_by(id: params[:id])
-  	@memo.content = params[:content]
-  	@memo.save
+    @memo.assign_attributes(content_params)
   	if @memo.save
   		flash[:notice] = "メモを編集しました"
-  		redirect_to("/index")
+  		redirect_to memos_path
   	else
-  		render("pages/edit")
+  		render :edit
   	end
   end
 
   def destroy
   	@memo = Memo.find_by(id: params[:id])
-  	@memo.destroy
+  	@memo.destroy!
   	flash[:notice] = "メモを削除しました"
-  	redirect_to("/index")
+  	redirect_to memos_path
+  end
+
+   private
+
+   def content_params
+    params.permit(:content)
   end
 end

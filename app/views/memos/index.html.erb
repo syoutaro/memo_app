@@ -2,6 +2,6 @@
 
 <% @memos.each do |memo| %>
 	<div class="list-group">
-		<a class="list-group-item"<%= link_to(memo.content, "/memo/#{memo.id}") %> </a>
+		<a class="list-group-item"<%= link_to memo.content,memo_url(memo)%></a>
 	</div>
 <% end %>

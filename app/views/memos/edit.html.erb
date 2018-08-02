@@ -1,10 +1,9 @@
 <h1>編集ページ</h1>
 
-
-<%= form_tag("/memo/#{@memo.id}/update") do %>
-	 <% @memo.errors.full_messages.each do |message| %>
-              <div class="alert alert-danger" role="alert">文字を入力してください</div>
-     <% end %>
+<%= form_tag(url_for(action: :update)) do %>
+	<% @memo.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger" role="alert">文字を入力してください</div>
+    <% end %>
 	<div class="input-group input-group-lg">
 		<span class="input-group-addon ">メモを書き換える</span>
 			<input type="text" name="content"value="<%= @memo.content %>"class="form-control">

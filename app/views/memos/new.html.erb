@@ -1,10 +1,9 @@
 <h1>メモを書く</h1>
 
-<%= form_tag("/create") do %>
-	 <% @memo.errors.full_messages.each do |message| %>
-              <div class="alert alert-success" role="alert">文字を入力してください</div>
-     <% end %>
-	
+<%= form_tag(memos_path) do %>
+	<% @memo.errors.full_messages.each do |message| %>
+        <div class="alert alert-danger" role="alert">文字を入力してください</div>
+    <% end %>
 	<div class="input-group input-group-lg">
 		<span class="input-group-addon ">メモ</span>
 			<input type="text" name="content" class="form-control" placeholder="メモを書く">
